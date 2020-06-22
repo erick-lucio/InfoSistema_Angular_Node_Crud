@@ -1,0 +1,54 @@
+GET http://localhost:3100/veiculos
+
+
+
+###
+
+
+
+
+
+POST http://localhost:3100/veiculos
+Content-Type: application/json
+
+{
+    "placa":"4g4g4",
+     "chassi":"fdfdf",
+     "renavam":"gfrgf", 
+     "modelo":"4f4f", 
+     "marca":"5g5g", 
+     "ano":"1973"
+}
+
+###
+
+PUT http://localhost:3100/veiculos
+Content-Type: application/json
+
+{
+    "id":4,
+    "placa":"4g4g4",
+    "chassi":"fdfdf",
+    "renavam":"45", 
+    "modelo":"4f4f", 
+    "marca":"45", 
+    "ano":1974
+}
+###
+DELETE   http://localhost:3100/veiculos
+Content-Type: application/json
+
+{
+    "id":3
+}
+
+###
+POST   http://localhost:3100/userslogin
+Content-Type: application/json
+
+{      
+    "password":"yuri20323",
+    "email":"email@email.com"
+}
+
+###
