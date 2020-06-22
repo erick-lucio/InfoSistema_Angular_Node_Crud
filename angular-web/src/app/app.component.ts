@@ -28,7 +28,7 @@ export class AppComponent implements OnInit{
 
   constructor(private http:HttpClient){
     const headers = new HttpHeaders()
-    .set("Content-Type", "application/json");
+      .set("Content-Type", "application/json");
 
     
   }
@@ -37,9 +37,8 @@ export class AppComponent implements OnInit{
     this.http.get<any>('http://localhost:3100/veiculos',{
   
     }).subscribe(
-      (val) => {
-          
-          this.veiculos=val
+      (val) => {          
+        this.veiculos=val
       },
       response => {
        
@@ -53,9 +52,8 @@ export class AppComponent implements OnInit{
     this.http.get<any>('http://localhost:3100/veiculos',{
       
     }).subscribe(
-      (val) => {
-          
-          this.veiculos=val
+      (val) => {          
+        this.veiculos=val
       },
       response => {
           
@@ -67,16 +65,13 @@ export class AppComponent implements OnInit{
     
     }
 httpPutFunction() {
- 
-
   const id = parseInt(this.putId.nativeElement.value)
   const placa = this.putPlaca.nativeElement.value
   const chassi = this.putChassi.nativeElement.value
   const renavam = this.putRenavam.nativeElement.value
   const modelo = this.putModelo.nativeElement.value
   const marca = this.putMarca.nativeElement.value
-  const ano = parseInt(this.putAno.nativeElement.value) 
-  
+  const ano = parseInt(this.putAno.nativeElement.value)   
 
   this.http.put<any>('http://localhost:3100/veiculos',{  
     id:id,
@@ -87,26 +82,20 @@ httpPutFunction() {
     marca:marca, 
     ano:ano
   }).subscribe(
-    (val) => {
-    
+    (val) => {    
     },
-    response => {
-       
-        this.httpGetFunction()
+    response => {       
+      this.httpGetFunction()
     },
-    () => {
-       
-        this.httpGetFunction()
+    () => {       
+      this.httpGetFunction()
     });
 
  
 }
 
 httpDeleteFunction() {
-
-  
   const id = parseInt(this.deleteId.nativeElement.value)
-
   const options = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -115,27 +104,22 @@ httpDeleteFunction() {
       id: id,      
     },
   };
+
   this.http.delete<any>('http://localhost:3100/veiculos',options
     
   ).subscribe(
-    (val) => {
-      
-       
+    (val) => {     
     },
-    response => {
-     
-        this.httpGetFunction()
+    response => {     
+      this.httpGetFunction()
     },
-    () => {
-        
-        this.httpGetFunction()
-        
+    () => {        
+      this.httpGetFunction()        
     });
     
     
 }
-  httpPostFunction() {
-    
+  httpPostFunction() {    
     const placa = this.postPlaca.nativeElement.value
     const chassi = this.postChassi.nativeElement.value
     const renavam = this.postRenavam.nativeElement.value
@@ -151,16 +135,13 @@ httpDeleteFunction() {
       marca:marca, 
       ano:ano
     }).subscribe(
-      (val) => {
-        
+      (val) => {        
       },
-      response => {
-         
-          this.httpGetFunction()
+      response => {         
+        this.httpGetFunction()
       },
-      () => {
-          
-          this.httpGetFunction()
+      () => {          
+        this.httpGetFunction()
       });
       
   }

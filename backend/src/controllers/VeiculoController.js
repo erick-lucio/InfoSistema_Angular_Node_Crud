@@ -6,16 +6,14 @@ const Veiculos = require('../models/Veiculos.js');
 module.exports = {
   async getRoute(req, res) {
         const veiculos = await Veiculos.findAll({
-            attributes: ['id','placa', 'chassi', 'renavam', 'modelo', 'marca', 'ano'],
-
+          attributes: ['id','placa', 'chassi', 'renavam', 'modelo', 'marca', 'ano'],
       });
     res.status(200).send(veiculos);
 
   },
   async postRoute(req, res) {
     const {placa, chassi, renavam, modelo, marca, ano} = req.body;
-    const insert_veiculos = await Veiculos.create({
-          
+    const insert_veiculos = await Veiculos.create({          
           placa:placa,
           chassi:chassi,
           renavam:renavam,
@@ -35,18 +33,15 @@ module.exports = {
       renavam:renavam,
       modelo:modelo,
       marca:marca,
-      ano:ano
-        
+      ano:ano        
     },{
       where:{id:id}
     })
     res.status(200).send("OK")
   },
   async deleteRoute(req, res) {
-    const {id} = req.body;
-    
-    const delete_veiculos = await Veiculos.destroy(   
-      
+    const {id} = req.body;    
+    const delete_veiculos = await Veiculos.destroy(         
     {where:
       {id:id}}
     )

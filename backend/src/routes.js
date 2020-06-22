@@ -11,7 +11,7 @@ function check_autentication(){
     res.status(500).send("Error Autentication")
   }
 }
-//crud
+
 routes.get('/veiculos', function (req, res, next) {
     //check_autentication()
     next();
